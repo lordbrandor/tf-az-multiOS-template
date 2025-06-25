@@ -1,0 +1,13 @@
+#For use with Gitlab CI/CD. Replace "project#" with your Gitlab project# and a functional url.
+terraform {
+  backend "http" {
+    address="https://gitlab.your.site/api/v4/projects/project#/terraform/state/tfstate"
+    lock_address="https://gitlab.your.site/api/v4/projects/project#/terraform/state/tfstate/lock"
+    unlock_address="https://gitlab.your.site/api/v4/projects/project#/terraform/state/tfstate/lock"
+    lock_method="POST"
+    unlock_method="DELETE"
+    retry_wait_min=5
+  }
+}
+
+
